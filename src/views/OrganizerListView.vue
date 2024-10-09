@@ -41,7 +41,6 @@ onMounted(()=>{
 </script>
 
 <template>
-    <div>
         <h1>Organizers List</h1>
 
         <!--new Organizer-->
@@ -50,9 +49,8 @@ onMounted(()=>{
              v-for="organizer in organizers" 
              :key="organizer.id"
             :organizer="organizer"/>
-        </div>
 
-        <!--pagination-->
+             <!--pagination-->
         <div class="pagination">
             <!--for previous link-->
             <RouterLink
@@ -82,7 +80,9 @@ onMounted(()=>{
                 Next Page &#62; 
             </RouterLink>
         </div>
-    </div>
+        </div>
+
+       
 </template>
 
 <style scoped>
