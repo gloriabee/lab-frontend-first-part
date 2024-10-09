@@ -21,3 +21,6 @@ export interface MessageState {
 export interface EventState {
   event: Event | null
 }
+export interface OrganizerState{
+  organizer: Organizer | null
+}
