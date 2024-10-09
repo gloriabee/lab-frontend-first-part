@@ -4,6 +4,7 @@ import { onMounted, ref } from 'vue'
 import EventService from '@/services/EventService';
 import { useRouter } from 'vue-router';
 import { useMessageStore } from '@/stores/message';
+import BaseInput from '@/components/BaseInput.vue';
 
 const event = ref<Event>({
   id: 0,
@@ -51,21 +52,17 @@ function saveEvent(){
     <h1>Create an event</h1>
     <form @submit.prevent="saveEvent">
         <!--choose category-->
-      <label>Category</label>
-      <input v-model="event.category" type="text" placeholder="Category" class="field">
+      <BaseInput v-model="event.category" type="text" label="Category"/>
+      <h3>Name & describe your event</h3>
 
       <!--title of event-->
-      <h3>Name & describe your event</h3>
-      <label>Title</label>
-      <input v-model="event.title" type="text" placeholder="Title" class="field">
+      <BaseInput v-model="event.title" type="text" label="Title"/>
 
       <!--description of event-->
-      <label>Description</label>
-      <input v-model="event.description" type="text" placeholder="Description" class="field">
+      <BaseInput v-model="event.description" type="text" label="Description"/>
 
       <!--Event's Location-->
-      <label>Location</label>
-      <input v-model="event.location" type="text" placeholder="Location" class="field">
+      <BaseInput v-model="event.location" type="text" label="Location"/>
 
       <button class="button" type="submit">Submit</button>
     </form>

@@ -8,7 +8,6 @@ defineProps<{
 <template>
      <div class="cursor-pointer border border-gray-600 p-[20px] w-[250px] mb-[18px] hover:scale-101 hover:shadow-sp">
       <h2>{{ organizer.name }}</h2>
-      <h3>{{ organizer.address }}</h3>
     </div>
 </template>
 
