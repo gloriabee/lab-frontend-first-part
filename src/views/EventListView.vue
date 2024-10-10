@@ -22,14 +22,15 @@ const props = defineProps({
 const page = computed(() => props.page)
 onMounted(() => {
   watchEffect(() => {
-    EventService.getEvents(3, page.value)
-      .then((response) => {
-        events.value = response.data
-        totalEvents.value = response.headers['x-total-count']
-      })
-      .catch(() => {
-        router.push({ name: 'network-error-view' })
-      })
+    // EventService.getEvents(1, page.value)
+    //   .then((response) => {
+    //     events.value = response.data
+    //     totalEvents.value = response.headers['x-total-count']
+    //   })
+    //   .catch(() => {
+    //     router.push({ name: 'network-error-view' })
+    //   })
+    updateKeyword(keyword.value)
   })
 })
 
@@ -37,7 +38,7 @@ const keyword=ref('')
 function updateKeyword(value:string){
   let queryFunction;
   if(keyword.value===''){
-    queryFunction=EventService.getEvents(3,page.value)
+    queryFunction=EventService.getEvents(1,page.value)
   }
   else{
     queryFunction=EventService.getEventsByKeyword(keyword.value,3,page.value)
