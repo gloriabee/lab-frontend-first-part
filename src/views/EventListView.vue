@@ -10,16 +10,21 @@ const router = useRouter()
 const events = ref<Event[] | null>(null)
 const totalEvents = ref(0)
 const hasNexPage = computed(() => {
-  const totalPages = Math.ceil(totalEvents.value / 3)
+  const totalPages = Math.ceil(totalEvents.value / perPage.value)
   return page.value < totalPages
 })
 const props = defineProps({
   page: {
     type: Number,
     required: true
+  },
+  perPage:{
+    type:Number,
+    required:true
   }
 })
 const page = computed(() => props.page)
+const perPage=computed(()=> props.perPage)
 onMounted(() => {
   watchEffect(() => {
     // EventService.getEvents(1, page.value)
@@ -38,7 +43,7 @@ const keyword=ref('')
 function updateKeyword(value:string){
   let queryFunction;
   if(keyword.value===''){
-    queryFunction=EventService.getEvents(1,page.value)
+    queryFunction=EventService.getEvents(3,page.value)
   }
   else{
     queryFunction=EventService.getEventsByKeyword(keyword.value,3,page.value)

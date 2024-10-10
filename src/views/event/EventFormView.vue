@@ -7,6 +7,7 @@ import { useMessageStore } from '@/stores/message';
 import BaseInput from '@/components/BaseInput.vue';
 import OrganizerService from '@/services/OrganizerService';
 import BaseSelect from '@/components/BaseSelect.vue';
+import ImageUpload from '@/components/ImageUpload.vue';
 
 const event = ref<Event>({
   id: 0,
@@ -20,7 +21,8 @@ const event = ref<Event>({
   organizer:{
     id:0,
     name:''
-  }
+  },
+  images:[]
 })
 
 const organizers=ref<Organizer[]>([])
@@ -82,6 +84,12 @@ function saveEvent(){
       <h3>Who is your organizer?</h3>
       <label>Select an Organizer</label>
       <BaseSelect v-model="event.organizer.id" :options="organizers" label="Organizer"/>
+
+      <!--image of event-->
+      <h3>The image of the Event</h3>
+      <ImageUpload v-model="event.images"></ImageUpload>
+
+      
       <button class="button" type="submit">Submit</button>
     </form>
     <pre>{{ event }}</pre>

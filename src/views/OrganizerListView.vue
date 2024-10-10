@@ -26,7 +26,7 @@ const page=computed(()=>props.page)
 
 onMounted(()=>{
     watchEffect(()=>{
-        OrganizerService.getOrganizers(3,page.value)
+        OrganizerService.getOrganizers()
         .then((response)=>{
             organizers.value=response.data
             totalOrganizers.value=response.headers['x-total-count']
