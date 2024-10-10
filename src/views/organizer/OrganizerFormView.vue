@@ -9,7 +9,6 @@ import { useRouter } from 'vue-router';
     const organizer=ref<Organizer>({
         id:0,
         name:'',
-        address:''
     })
 
     const router=useRouter()
@@ -39,11 +38,6 @@ import { useRouter } from 'vue-router';
             <!--Organization Name-->
             <label>Name of your organization</label>
             <input v-model="organizer.name" type="text" placeholder="Name" class="field">
-
-            <!--Organization Address-->
-            <label>Address of your organization</label>
-            <input v-model="organizer.address" type="text" placeholder="Location" class="field">
-
             <button class="button" type="submit">Submit</button>
         </form>
 
