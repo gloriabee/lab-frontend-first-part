@@ -13,6 +13,7 @@ import nProgress from 'nprogress'
 import EventService from '@/services/EventService'
 import { useEventStore } from '@/stores/event'
 import OrganizerListView from '@/views/OrganizerListView.vue'
+import LoginView from '@/views/LoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,11 @@ const router = createRouter({
       name: 'event-list-view',
       component: EventListView,
       props: (route) => ({ page: parseInt(route.query.page?.toString() || '1') })
+    },
+    {
+      path:'/login',
+      name:'login',
+      component: LoginView
     },
     {
       path: '/event/:id',
