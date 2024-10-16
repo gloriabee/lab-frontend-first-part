@@ -5,6 +5,8 @@
     import { useAuthStore } from '@/stores/auth';
     import { useRouter } from 'vue-router';
     import { useMessageStore } from '@/stores/message';
+
+
     const messageStore=useMessageStore()
     const router=useRouter()
     const authStore=useAuthStore()
@@ -30,7 +32,7 @@
         .then(()=>{
             router.push({name:'event-list-view'})
         })
-        .catch((err)=>{
+        .catch(()=>{
             messageStore.updateMessage('could not login')
             setTimeout(()=>{
                 messageStore.resetMessage()

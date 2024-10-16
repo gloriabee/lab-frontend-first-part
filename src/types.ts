@@ -13,6 +13,7 @@ export interface Event {
 export interface Organizer{
   id: number
   name: string
+  roles: string[]
 }
 export interface MessageState {
   message: string
